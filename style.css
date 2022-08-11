@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+:root{
+    --first-color: #000000;
+    --second-color: #fbff05;
+    --white-color: #fff;
+    --body-font: 'Poppins', serif;
+    --h1-font-size: 2.3rem;
+    --h2-font-size: 2.3rem;
+    --normal-font-size: 0.93rem;
+    --big-font-size: 5rem;
+    --smaller-font-size: 0.75rem;
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        --h1-font-size: 4.5rem;
+        --h2-font-size: 3.5rem;
+        --normal-font-size: 1rem;
+        --big-font-size: 10rem;
+        --smaller-font-size: 0.813rem
+    }
+}
+
+*, ::before, ::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 3.5rem 0 0 0;
+    font-family: var(--body-font);
+    font-weight: initial;
+    overflow: hidden;
+}
+
+h1, h2{
+    margin: 0;
+    font-weight: initial;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+p{
+    font-size: var(--normal-font-size);
+}
+
+.bg-grid{
+    max-width: 1200px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.main-header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--first-color);
+    color: var(--white-color);
+    z-index: var(--z-fixed);
+}
+
+.nav{
+    height: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px){
+    .nav_menu{
+        position: fixed;
+        top: 3.5rem;
+        left: -100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 80%;
+        height: 100vh;
+        margin: auto;
+        padding: 2rem;
+        z-index: var(--z-fixed);
+        transition: .5s;
+    }
+}
+
+.nav_list{
+    text-align: center;
+}
+
+.nav_item{
+    margin-bottom: 2rem;
+}
+
+.nav_link{
+    padding: .5rem;
+    color: var(--white-color);
+}
+
+.nav_logo{
+    color: var(--white-color);
+}
+
+.nav_toggle{
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.nav_icon_cart{
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.show{
+    left: 0
+}
+
+.home{
+    position: relative;
+    display: grid;
+    grid-template-rows: 3fr 3fr;
+    height: calc(100vh - 3.5rem);
+}
+
+.home_first{
+    width: 0;
+    /* For animation to work, we need to set the width to 0 */
+    background-color: var(--first-color);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.home_title{
+    font-size: var(--h1-font-size);
+    writing-mode: vertical-rl;
+    color: var(--white-color);
+    transform: rotate(180deg);
+}
+
+.home_img{
+    width: 400px;
+    height: auto;
+}
+
+.home_second{
+    width: 0;
+    /* For animation to work, we need to set the width to 0 */
+    background-color: var(--second-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.home_scroll{
+    position: absolute;
+    left: 0;
+    bottom: 15%;
+    font-size: var(--smaller-font-size);
+    transform: rotate(270deg);
+    color: var(--first-color);
+}
+
+.home_scroll::after{
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: -10%;
+    height: 1px;
+    width: 38px;
+    background-color: var(--first-color);
+    margin-left: -2.5rem;
+}
+
+/* .home_scroll::after:hover{
+    margin-left: -3rem;
+} */
+
+.car_year{
+    font-size: var(--big-font-size);
+    -webkit-text-stroke: 2.3px var(--first-color);
+    color: transparent;
+}
+
+@media screen and (min-width: 768px){
+    body{
+        margin: 0;
+    }
+    .main-header{
+        background-color: transparent;
+    }
+
+    .nav{
+        display: grid;
+        grid-template-columns: 3fr 4fr 1fr;
+    }
+
+    .nav_list{
+        display: flex;
+    }
+
+    .nav_item{
+        margin-right: 5rem;
+        margin-bottom: 0;
+    }
+
+    .nav_toggle{
+        display: none;
+    }
+
+    .home{
+        grid-template-columns: 4fr 3fr;
+        grid-template-rows: 1fr;
+        height: 100vh;
+    }
+
+    .home_first{
+        justify-content: center;
+    }
+
+    .home_img img{
+        position: absolute;
+        width: 600px;
+        top: 5%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .home_scroll{
+        color: var(--white-color);
+    }
+
+    .home_scroll::after{
+        background-color: var(--white-color);
+    }
+
+    .car_year{
+        writing-mode: vertical-rl;
+        margin-left: 5rem;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .bg-grid{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .nav{
+        height: calc(3.5rem + 1.5rem);
+    }
+}
